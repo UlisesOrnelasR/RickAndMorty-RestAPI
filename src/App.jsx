@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const App = () => {
+  const [characters, setCharacters] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("https://rickandmortyapi.com/api/character");
-      const data = await response.json();
-      console.log(data);
+      const { results } = await response.json();
+      console.log(results);
     };
     fetchData();
   }, []);
