@@ -15,11 +15,14 @@ export const App = () => {
   return (
     <div>
       <h1>Rick and Morty</h1>
-      <ol>
-        {characters.map((charachter) => {
-          return <li>{charachter.name}</li>;
-        })}
-      </ol>
+      {characters.map((character) => {
+        return (
+          <div>
+            <h2>{character.name}</h2>
+            <img src={character.image} alt={character.name} />
+          </div>
+        );
+      })}
     </div>
   );
 };
