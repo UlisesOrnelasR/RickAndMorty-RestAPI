@@ -16,7 +16,7 @@ export const CharacterList = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [page]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -39,6 +39,7 @@ export const CharacterList = () => {
           })}
         </div>
       )}
+      <NavPage page={page} setPage={setPage} />
     </div>
   );
 };
