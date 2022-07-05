@@ -14,17 +14,25 @@ export const CharacterList = () => {
     fetchData();
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="container bg-danger">
-      <div className="row">
-        {characters.map((character) => {
-          return (
-            <div className="col-md-4" key={character.id}>
-              <Character character={character} />
-            </div>
-          );
-        })}
-      </div>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div className="row">
+          {characters.map((character) => {
+            return (
+              <div className="col-md-4" key={character.id}>
+                <Character character={character} />
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
