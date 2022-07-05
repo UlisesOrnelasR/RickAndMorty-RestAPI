@@ -19,7 +19,7 @@ export const CharacterList = () => {
   }
 
   return (
-    <div className="container bg-danger">
+    <div className="container">
       {loading ? (
         <h1>Loading...</h1>
       ) : (
