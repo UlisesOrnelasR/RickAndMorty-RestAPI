@@ -7,7 +7,7 @@ export const NavPage = ({ setPage, page }) => {
       >
         Page: {page - 1}
       </button>
-      <p>Page: {page}</p>
+      <p className="fw-bold">Page: {page}</p>
       <button className="btn btn-info btn-sm" onClick={() => setPage(page + 1)}>
         Page: {page + 1}
       </button>
