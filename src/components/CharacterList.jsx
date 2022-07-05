@@ -15,7 +15,7 @@ export const CharacterList = () => {
   return (
     <div>
       {characters.map((character) => {
-        return <Character character={character} />;
+        return <Character key={character.id} character={character} />;
       })}
     </div>
   );
