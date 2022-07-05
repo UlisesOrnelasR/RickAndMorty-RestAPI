@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { Character } from "./Character";
+import { NavPage } from "./NavPage";
 export const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://rickandmortyapi.com/api/character");
+      const response = await fetch(
+        `https://rickandmortyapi.com/api/character?page=${page}`
+      );
       const { results } = await response.json();
       setCharacters(results);
       setLoading(false);
@@ -20,6 +24,8 @@ export const CharacterList = () => {
 
   return (
     <div className="container">
+      <NavPage page={page} setPage={setPage} />
+
       {loading ? (
         <h1>Loading...</h1>
       ) : (
